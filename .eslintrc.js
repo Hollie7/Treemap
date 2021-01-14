@@ -11,7 +11,7 @@ module.exports = {
     'prettier',
     'prettier/@typescript-eslint',
     'prettier/unicorn',
-    'prettier/vue',
+    'prettier/vue'
   ],
   globals: {
     'AMap': 'readonly',
@@ -34,8 +34,8 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    quotes: ['error', 'single'],
-    semi: ['error', 'always'],
+    // quotes: ['error', 'single'],
+    // semi: ['error', 'always'],
     'unicorn/prefer-optional-catch-binding': 0,
     'no-underscore-dangle': 0,
     'class-methods-use-this': 0,

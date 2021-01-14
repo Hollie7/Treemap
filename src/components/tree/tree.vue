@@ -110,7 +110,7 @@ export default {
                   .attr('y',25)
                   .attr('text-anchor','middle')
                   .attr('fill','#000');
-        },
+        }
     }
 
 };

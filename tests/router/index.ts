@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 
+// VueRouter是Vue.js官方的路由管理器
+// 这里是Router的注册
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
@@ -8,6 +10,8 @@ const routes: Array<RouteConfig> = [
     path: '/',
     name: 'bar-chart',
     component: () => import('../views/bar-chart/bar-chart.vue'),
+    // meta元素可提供有关页面的元信息，比如针对搜索引擎和更新频度的描述和关键词
+    // 这个title为左侧列表里显示的标题
     meta: {
       title: 'bar-chart',
     },

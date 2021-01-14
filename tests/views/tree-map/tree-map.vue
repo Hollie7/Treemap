@@ -1,14 +1,18 @@
 <template>
   <div class="page-tree-map">
     <TestGrid>
+
       <div slot="l-box">
         <!-- 这里将bindConfig赋值给组件的options属性，然后在src/components/tree-map/tree-map.vue中绘制 -->
         <TreeMap :options="bindConfig" />
       </div>
+      
       <div slot="r-box">
         <!-- 每一个el-tabs就是一个配置项组，这里只保留了title这一组 -->
         <el-tabs size="small" v-model="activeName" type="card">
+
           <el-tab-pane label="title" name="first">
+            <!--这个height是右侧的列表显示出来的比例-->
             <el-scrollbar style="height: 100%">
               <div class="form-box">
                 <HForm
@@ -20,9 +24,39 @@
               </div>
             </el-scrollbar>
           </el-tab-pane>
+
+          <el-tab-pane label="chart" name="second">
+            <el-scrollbar style="height: 100%">
+              <div class="form-box">
+                <HForm
+                  v-if="isInited"
+                  :formData="formConfigChart.formData"
+                  :items="formConfigChart.items"
+                  @eventdone="eventDone"
+                ></HForm>
+              </div>
+            </el-scrollbar>
+          </el-tab-pane>
+
+          <!--
+           <el-tab-pane label="legend" name="second">
+            <el-scrollbar style="height: 100%">
+              <div class="form-box">
+                <HForm
+                  v-if="isInited"
+                  :formData="formConfigLegend.formData"
+                  :items="formConfigLegend.items"
+                  @eventdone="eventDone"
+                ></HForm>
+              </div>
+            </el-scrollbar>
+          </el-tab-pane>
+        -->
+
         </el-tabs>
         <!-- 根据需要还可以添加 tooltip, 颜色列表....等 -->
       </div>
+
     </TestGrid>
   </div>
 </template>
@@ -32,6 +66,7 @@ import TestGrid from "~/tests/components/test-grid";
 import HForm from "~/tests/components/h-form";
 // 下面这里请根据你自己的开发情况import相应组件的配置项
 import settingTitle from "~/tests/setting-rules/property-setting-treemap-title";
+import settingChart from "~/tests/setting-rules/property-setting-treemap-chart";
 
 import { cloneDeep } from "lodash";
 
@@ -56,13 +91,27 @@ export default {
         titleFontSize: 16,
         titleFontFamily: "Arial",
         titleFontColor: "#000",
+
+        chartIsShow: true,
+        chartBackground: '#ffdcb8',
+        chartPadding: {top: 80, right: 80, bottom: 80, left: 80},
         // ... 根据需要添加更多
       },
       formConfigTitle: {
         formData: {},
         items: [],
       },
+      formConfigChart: {
+        formData: {},
+        items: [],
+      },
       // ...
+  
+      // formConfigLegend: {
+      //   formData: {},
+      //   items: [],
+      // }
+
     };
   },
   // https://cn.vuejs.org/v2/api/#created
@@ -85,7 +134,7 @@ export default {
     initFormSetting() {
       // 初始化表单设置
       this.buildPropertyGroup(settingTitle, "formConfigTitle");
-
+      this.buildPropertyGroup(settingChart, "formConfigChart");
       this.$nextTick(() => {
         this.isInited = true;
       });
@@ -101,7 +150,7 @@ export default {
             group[property].default
           );
         } else {
-          // console.error('build error', group, property)
+          console.error('build error', group, property)
         }
       });
     },
@@ -242,9 +291,10 @@ export default {
 </script>
 <style lang="less" scoped>
 .page-tree-map {
-  width: 100%;
-  height: 100%;
-  /deep/ .r-box {
+  width: 95%;
+  height: 95%;
+  /deep/ 
+  .r-box {
     .el-scrollbar__wrap {
       overflow-x: hidden;
     }
@@ -253,7 +303,8 @@ export default {
       overflow-y: hidden;
     }
     .form-box {
-      padding-right: 10px;
+      padding-right: 20px;
+      color: #ffdcb8;
     }
   }
 }

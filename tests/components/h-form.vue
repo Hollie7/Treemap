@@ -2,12 +2,14 @@
   <div class="comp-h-form">
     <el-form ref="form" v-bind="formSet" v-model="formData">
       <template v-for="(item, i) in items">
+
         <el-form-item
           v-if="item.formItem && item.formComp"
           :key="'form-item-'+ i"
           :label="item.formItem.label||''"
           :prop="item.formItem.prop"
         >
+
           <component
             v-if="item.formComp.is"
             v-bind="item.formComp"
@@ -20,7 +22,9 @@
               <el-option v-for="(op,k) in (item.items || [])" :key="i + 'op' + k" v-bind="op"></el-option>
             </template>
           </component>
+
         </el-form-item>
+        
       </template>
     </el-form>
   </div>

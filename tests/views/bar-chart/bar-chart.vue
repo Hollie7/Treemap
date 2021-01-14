@@ -6,6 +6,7 @@
       </div>
       <div slot="r-box">
         <el-tabs size="small" v-model="activeName" type="card">
+
           <el-tab-pane label="title" name="first">
             <el-scrollbar style="height: 100%">
               <div class="form-box">
@@ -18,6 +19,7 @@
               </div>
             </el-scrollbar>
           </el-tab-pane>
+
           <el-tab-pane label="legend" name="second">
             <el-scrollbar style="height: 100%">
               <div class="form-box">
@@ -30,6 +32,7 @@
               </div>
             </el-scrollbar>
           </el-tab-pane>
+
           <el-tab-pane label="xAxis" name="third">
             <el-scrollbar style="height: 100%">
               <div class="form-box">
@@ -42,6 +45,7 @@
               </div>
             </el-scrollbar>
           </el-tab-pane>
+
           <el-tab-pane label="yAxis" name="forth">
             <el-scrollbar style="height: 100%">
               <div class="form-box">
@@ -54,6 +58,7 @@
               </div>
             </el-scrollbar>
           </el-tab-pane>
+
           <el-tab-pane label="tooltip" name="fifth">
             <el-scrollbar style="height: 100%">
               <div class="form-box">
@@ -66,6 +71,7 @@
               </div>
             </el-scrollbar>
           </el-tab-pane>
+
           <el-tab-pane label="chart" name="sixth">
             <el-scrollbar style="height: 100%">
               <div class="form-box">
@@ -89,10 +95,9 @@
                   </el-collapse-item>
                 </el-collapse>
               </div>
-              
             </el-scrollbar>
-            
           </el-tab-pane>
+        
         </el-tabs>
       </div>
     </TestGrid>
@@ -406,10 +411,12 @@ export default {
   },
 }
 </script>
+
 <style lang="less" scoped>
 .page-bar {
   width: 100%;
   height: 100%;
+  
   /deep/ .r-box {
     .el-scrollbar__wrap {
       overflow-x: hidden;

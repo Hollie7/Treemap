@@ -170,7 +170,7 @@ export default {
                     if(this.options.legendAlign==='vertical'){
                         // 垂直排列
                         this.legendWidth=80;
-                        this.legendHeight=170;;
+                        this.legendHeight=170;
                         this.legend = this.legendBox.selectAll('.legend') 
                                 .attr('transform', function(d, i) { return (`translate(10, ${i * 25})`); });
                     }else{
@@ -425,8 +425,8 @@ export default {
                 });
 
                 // 更新brush可刷选范围
-                this.brush.extent([[0, 0], [this.width, this.height]]);
-                this.gBrush.call(this.brush);
+                // this.brush.extent([[0, 0], [this.width, this.height]]);
+                // this.gBrush.call(this.brush);
                 
                 // 更新图表的绘制
                 this.updateGrid();
@@ -586,16 +586,16 @@ export default {
             // 添加g标签 
             this.g = this.svg.append('g')
                         .attr('class','chart')  // 图表部分
-                        .attr('transform',`translate(${this.chartPadding.left+40}, ${this.chartPadding.top+40})`);
+                        .attr('transform',`translate(${this.chartPadding.left+400}, ${this.chartPadding.top+40})`);
             
             // 添加brush
-            this.brush = d3.brushX()
-                .extent([[0, 0], [this.width, this.height]]) // 刷选范围为图表部分
-                .on('brush',this.brushed);
+            // this.brush = d3.brushX()
+            //     .extent([[0, 0], [this.width, this.height]]) // 刷选范围为图表部分
+            //     .on('brush',this.brushed);
  
-            this.gBrush = d3.select('.chart').append('g')
-                .attr('class','brush')
-                .call(this.brush);
+            // this.gBrush = d3.select('.chart').append('g')
+            //     .attr('class','brush')
+            //     .call(this.brush);
 
             // 暂存几个变量,以便之后用到
             const chartpadding = this.chartPadding;
