@@ -59,9 +59,3 @@ rimraf node_modules    # 删除 node_modules 文件夹
   > 1. tree：https://observablehq.com/@d3/collapsible-tree
   > 2. treemap：https://observablehq.com/@d3/treemap
   > 3. sunburst：https://observablehq.com/@d3/sunburst
-
-- 遇到问题时，如果找不到解决办法，可以及时询问助教
-
-- 提交方式：学在浙大上传压缩包（注意**不要包含 ```node_modules``` 文件夹**）
-  
-- 截止时间：2021年 1月 12日 中午12点
